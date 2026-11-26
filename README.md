@@ -2,7 +2,7 @@
 
 A users directory built with Next.js (App Router): data is fetched on the server, rendered as HTML, and filtered on the client.
 
-This is the same app as my [React version](https://github.com/YOUR-USERNAME/users-directory), rebuilt to compare the two approaches.
+This is the same app as my [React version](https://github.com/faressalem03/users-directory), rebuilt to compare the two approaches.
 
 **Live demo:** https://users-directory-next.vercel.app
 
