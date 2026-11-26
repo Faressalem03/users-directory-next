@@ -1,36 +1,87 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Users Directory — Next.js version
 
-## Getting Started
+A users directory built with Next.js (App Router): data is fetched on the server, rendered as HTML, and filtered on the client.
 
-First, run the development server:
+This is the same app as my [React version](https://github.com/YOUR-USERNAME/users-directory), rebuilt to compare the two approaches.
+
+**Live demo:** https://users-directory-next.vercel.app
+
+---
+
+## Screenshots
+
+**Users list with live search**
+
+![Users list](./screenshots/list.png)
+
+**User details page**
+
+![User details](./screenshots/details.png)
+
+
+**view from a mobile to confirm the responsiveness**
+
+![mobile view](./screenshots/mobile.png)
+
+---
+
+## Features
+
+- Users fetched from the DummyJSON API
+- Live search filtering by name
+- A details page for each user at `/users/[userId]`
+- Loading UI with `loading.js`
+- Empty state when no user matches the search
+- Responsive card grid, no media queries needed
+- Page metadata for SEO
+
+---
+
+## What changed from the React version
+
+| | React (CRA) | Next.js |
+|---|---|---|
+| Data fetching | `useEffect` + `axios` in the browser | `async` server component, before the HTML is sent |
+| Loading state | `useState` + a conditional | `loading.js`, handled by the framework |
+| Routing | React Router (`Routes`, `Link`, `useParams`) | folders and files (`app/users/[userId]/page.js`) |
+| URL params | `useParams()` | the `params` prop |
+| SEO | one empty `<div id="root">` in the HTML | full HTML with the content, plus metadata |
+
+The main difference is **where the work happens**. In the React version the browser downloads the JavaScript, then fetches, then draws. In the Next version the server fetches and sends finished HTML, so the content is there on first paint.
+
+---
+
+## Server and client components
+
+Most of the app is server components. Only the search needs the browser:
+
+- **Server:** the users page, the details page, the cards — they only fetch and display
+- **Client (`"use client"`):** the search section, because it uses `useState` and `onChange`
+
+The data is fetched on the server and passed down to the client component, which filters it.
+
+---
+
+## Built with
+
+- Next.js (App Router)
+- React
+- CSS Modules
+- DummyJSON API
+
+---
+
+## Run locally
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then open http://localhost:3000
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Notes
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The API is a mock service, so the data is read-only and nothing is persisted.
