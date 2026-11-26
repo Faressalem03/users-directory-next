@@ -12,16 +12,16 @@ This is the same app as my [React version](https://github.com/faressalem03/users
 
 **Users list with live search**
 
-![Users list](.src/app/screenshots/list.png)
+![Users list](./src/app/screenshots/list.png)
 
 **User details page**
 
-![User details](.src/app/screenshots/details.png)
+![User details](./src/app/screenshots/details.png)
 
 
 **view from a mobile to confirm the responsiveness**
 
-![mobile view](.src/app/screenshots/mobile.png)
+![mobile view](./src/app/screenshots/mobile.png)
 
 ---
 
