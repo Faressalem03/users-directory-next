@@ -1,0 +1,86 @@
+.page {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 32px 16px;
+}
+
+.back {
+    display: inline-block;
+    margin-bottom: 20px;
+    color: #555;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.back:hover {
+    color: #111;
+}
+
+.card {
+    background: #fff;
+    border: 1px solid #e5e5e5;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 28px;
+    border-bottom: 1px solid #eee;
+}
+
+.photo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid #e5e5e5;
+    flex-shrink: 0;
+}
+
+.name {
+    font-size: 24px;
+    margin: 0 0 6px;
+}
+
+.role {
+    margin: 0;
+    color: #666;
+    font-size: 14px;
+}
+
+.info {
+    padding: 8px 28px 20px;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 14px 0;
+    border-bottom: 1px solid #f2f2f2;
+    font-size: 14px;
+}
+
+.row:last-child {
+    border-bottom: none;
+}
+
+.label {
+    color: #888;
+}
+
+.message {
+    text-align: center;
+    padding: 40px;
+    color: #666;
+}
+
+@media (max-width: 500px) {
+    .header {
+        flex-direction: column;
+        text-align: center;
+    }
+}
