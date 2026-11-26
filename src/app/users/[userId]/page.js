@@ -1,8 +1,15 @@
 import styles from "./page.module.css";
 import Link from "next/link";
 
+export async function generateMetadata({ params }) {
+  const { userId } = await params;
+  const response = await fetch(`https://dummyjson.com/users/${userId}`);
+  const user = await response.json();
+  return { title: `${user.firstName} ${user.lastName} ` };
+}
+
 export default async function UserDetails({params}) {
-  const {userId} = await params;  
+  const {userId} = await params;
   const res = await fetch(`https://dummyjson.com/users/${userId}`);
   const user = await res.json();
   return (
@@ -56,3 +63,4 @@ export default async function UserDetails({params}) {
     </div>
   );
 }
+
